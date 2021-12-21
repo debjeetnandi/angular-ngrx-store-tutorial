@@ -4,12 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 
+import { counterReducer } from './counter.reducer';
+import { tasteReducer } from './taste.reducer';
+import { MyCounterComponent } from './my-counter/my-counter.component';
+import { MyTasteComponent } from './my-taste/my-taste.component';
+
 @NgModule({
   imports: [
     BrowserModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({
+      count: counterReducer,
+      taste: tasteReducer,
+    }),
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyCounterComponent, MyTasteComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
